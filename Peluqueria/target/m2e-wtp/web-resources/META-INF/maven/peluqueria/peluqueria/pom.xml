@@ -78,5 +78,10 @@
 	    	<artifactId>peluqueria_jdbc</artifactId>
 	    	<version>0.0.1-SNAPSHOT</version>
 	    </dependency>
+	     <dependency>
+	    	<groupId>peluqueria_jpa</groupId>
+	    	<artifactId>peluqueria_jpa</artifactId>
+	    	<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
 	</dependencies>  
 </project>

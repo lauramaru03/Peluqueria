@@ -203,7 +203,7 @@
 							Asistio
 						</td>
 					</tr>
-					<tr class="warning"">
+					<tr class="warning">
 						<td>
 							4
 						</td>

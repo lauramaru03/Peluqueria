@@ -1,46 +1,61 @@
 package co.com.peluqueria.services;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import co.com.peluqueria.jdbc.dao.LugarDAO;
-import co.com.peluqueria.jdbc.dao.ServicioDAO;
-import co.com.peluqueria.jdbc.entities.Lugar;
-import co.com.peluqueria.jdbc.entities.Servicio;
+import co.com.peluqueria.DAO.ServicioDAO;
 import co.com.peluqueria.model.ServicioDTO;
+
+
+
 
 public class ServicioServicesImpl implements ServicioServices {
 	
+	ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Datasource-JPA.xml");
 	
-	 @Override
-	  public   ArrayList<ServicioDTO> findServicioList() {
-	 // Se obtiene el contexto de la aplicacion
-	    ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 
+	@Override
+	public ServicioDTO findServicioByID(int servicioId) {
+		
+		return this.findByIDJPA(servicioId); 
+	}
+
+	private ServicioDTO findByIDJPA(int servicioId) {
+		
+		 
+
+		    // Se obtiene el servicio que implementa los servicios de la base de datos
+		    ServicioDAO sesionDAO = (ServicioDAO) context.getBean(ServicioDAO.class);
+
+		    // Se realiza el insert
+		    ServicioDTO servicioDTO = sesionDAO.findServicioByID(1);
+		    
+		    
+		return servicioDTO;
+	}
+
+	@Override
+	public List<ServicioDTO> findServicio() {
+		
+		return this.findServicioJPA();
+	}
+
+	private List<ServicioDTO> findServicioJPA() {
+		
+	    // Se obtiene el servicio que implementa los servicios de la base de datos
+	    ServicioDAO sesionDAO = (ServicioDAO) context.getBean(ServicioDAO.class);
+
+	    List<ServicioDTO> servicioDTO = sesionDAO.findServicio();
+	    // Se realiza el insert
+	    
+	    
+	    return servicioDTO;
 	   
-		ServicioDAO sesionDAO =(ServicioDAO) context.getBean("servicioDAO"); 
-	     
-		ArrayList<Servicio> servicios = sesionDAO.findServicioList();
-		
-		
-	    
-	    ArrayList<ServicioDTO> servicioDTOList = new ArrayList<ServicioDTO>();
-	    
-	    
-	    for( Servicio servicio:servicios){
-	    ServicioDTO servicioDTO = new ServicioDTO();
-	    
-	    servicioDTO.setName(servicio.getName());
-	    servicioDTO.setDescription(servicio.getDescription());
-	    servicioDTO.setPrice(servicio.getPrice());
-	    
-	    servicioDTOList.add(servicioDTO);
-	    
-	    }
-	    return servicioDTOList; 
 	  }
+		
+	
 	    
 	 }
 

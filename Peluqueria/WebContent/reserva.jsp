@@ -1,3 +1,8 @@
+<%@ page session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="/include.jsp" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,81 +21,7 @@
   </head>
   <body>
 
-    <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-12">
-					<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-						<div class="navbar-header">
-							 
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-								 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-							</button> <a class="navbar-brand" href="index.jsp">Home</a>
-						</div>
-						
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li >
-									<a href="reserva.jsp">Reservas</a>
-								</li>
-								<li>
-									<a href="asociados.jsp">Asociados</a>
-								</li>
-								<li class="dropdown">
-									 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Servicios<strong class="caret"></strong></a>
-									<ul class="dropdown-menu">
-										<li>
-											<a href="servicio1.jsp">Peinados</a>
-											<a href="servicio2.jsp">Corte</a>
-											<a href="servicio3.jsp">Maquillaje</a>
-											
-										</li>
-										<li class="divider">
-										</li>
-										<li>
-											<a href="servicios.jsp">Ver todos</a>
-										</li>
-										
-									</ul>
-								</li>
-								<li class="dropdown">
-									 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Salones<strong class="caret"></strong></a>
-									<ul class="dropdown-menu">
-										<li>
-											<a href="salon1.jsp">Salon Sector C.C Unicentro</a>
-										</li>
-										<li>
-											<a href="salon2.jsp">Salon Sector C.C Los Molinos</a>
-										</li>
-										<li>
-											<a href="salon3.jsp">Salon Sector C.C Santafe</a>
-										</li>
-										
-										<li class="divider">
-										</li>
-										<li>
-											<a href="salones.jsp">Ver todos</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							
-							<ul class="nav navbar-nav navbar-right">
-								<li>
-									<a href="#">Cerrar Sesion</a>
-								</li>
-								
-							</ul>
-							
-						</div>
-						
-					</nav>
-				</div>
-			</div>
-		</div>
-	</div>
-	<br><br><br>
+  
 	<h1 class="text-center">Reservas</h1>
 	<h3>Crear una reserva</h3>
 	<div class="row">
@@ -109,10 +40,10 @@
 					</label>
 					<br>
 					<select name="servicio" class="form-control" required >
-					<option>(Selecione)</option>
-					 <option>Corte</option>
-					 <option>Cepillado</option>
-					 <option>Maquillaje</option>
+					 <c:forEach var="reserva" items="${reserva}">
+					<option>${reserva['servicio_id']}</option>
+					
+					 </c:forEach>
 					 </select>
 					
 				</div>
@@ -167,7 +98,7 @@
 		<div class="col-md-12">
 			 
 			<address>
-				 <strong>Peluqueria.</strong><br> 795 Folsom Ave, Suite 600<br> San Francisco, CA 94107<br> <abbr title="Phone">P:</abbr> (123) 456-7890
+				 <strong>Peluqueria <br>Estilos y Tendencias.</strong><br> Medellin,Antioquia<br> estilosytendencias@gmail.com<br> <abbr title="Phone">P:</abbr> (123) 456-7890
 			</address>
 		</div>
 	</div>

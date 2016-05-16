@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
+ 
+   <persistence-unit name="persistence">
+     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+     <class>co.com.peluqueria.jpa.entities.Empleado</class>
+     <class>co.com.peluqueria.jpa.entities.Lugar</class>
+     <class>co.com.peluqueria.jpa.entities.Reserva</class>
+     <class>co.com.peluqueria.jpa.entities.Servicio</class>
+     <class>co.com.peluqueria.jpa.entities.Cliente</class>
+ 
+   </persistence-unit>
+ 
+</persistence>

@@ -1,1 +1,12 @@
-# Empty CSS file for your own CSS
+
+
+input[type=submit]{
+	color:#ffffff;
+	background:#2E2E2E;
+	
+}
+
+nav{
+	background:#000000;
+}
+

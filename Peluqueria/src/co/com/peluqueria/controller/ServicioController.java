@@ -13,14 +13,13 @@ import co.com.peluqueria.services.PeluqueriaFacade;
 @Controller
 public class ServicioController {
 	
-	@RequestMapping(value="/servicio", method=RequestMethod.GET)
+	PeluqueriaFacade peluqueriaFacade = new PeluqueriaFacade();
+	
+	@RequestMapping(value="/servicio", method=RequestMethod.POST)
 	public ModelAndView servicio(@ModelAttribute("model") ServicioDTO servicioDTO) {
-		PeluqueriaFacade peluqueriaFacade = new PeluqueriaFacade();		
-		return new ModelAndView("servicios", "model", peluqueriaFacade.findServicioList());
-		
-		
-		
-		
+				
+	return new ModelAndView("servicios", "servicio", peluqueriaFacade.findServicio());
+					
 		
 	}
 	

@@ -7,28 +7,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.com.peluqueria.model.Reserva;
+import co.com.peluqueria.model.EmpleadoDTO;
+import co.com.peluqueria.model.ReservaDTO;
+import co.com.peluqueria.services.PeluqueriaFacade;
 
-
-@Controller
-public class ReservaController {
+	@Controller
+	public class ReservaController {
 	
-	@RequestMapping(value="/reserva",method=RequestMethod.GET)
-	public ModelAndView reservas(){
-		
-		return new ModelAndView("reserva","command",new Reserva());
-
+	PeluqueriaFacade peluqueriaFacade = new PeluqueriaFacade();
+	
+	@RequestMapping(value="/reserva", method=RequestMethod.POST)
+	public ModelAndView reserva(@ModelAttribute("model") ReservaDTO reservaDTO) {
+				
+	return new ModelAndView("reserva", "reserva", peluqueriaFacade.findReserva());
+					
+	
+	
 	}
-	@RequestMapping(value="/crearReserva",method=RequestMethod.POST)
-	public String crearReserva(@ModelAttribute("SpringWeb")Reserva reserva ,ModelMap model){
-		model.addAttribute("fecha",reserva.getFecha());
-		model.addAttribute("servicio",reserva.getServicio());
-		model.addAttribute("salon", reserva.getSalon());
-		model.addAttribute("asociado", reserva.getAsociado());
-		model.addAttribute("hora",reserva.getHora());
+	
+	/*@RequestMapping(value="/crearReserva",method=RequestMethod.POST)
+	public String crearReserva(@ModelAttribute("SpringWeb")ReservaDTO reserva ,ModelMap model){
+		model.addAttribute("fecha",reserva.getDate());
+		model.addAttribute("servicio",reserva.getServicio_id());
+		model.addAttribute("lugar", reserva.getLugar_id());
+		model.addAttribute("empleado", reserva.getEmpleado_id());
+		model.addAttribute("hora",reserva.getHour());
 		
 		return "detalleReserva";
 		
-	}
+	}*/
+	
 
 }

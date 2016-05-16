@@ -7,15 +7,21 @@ import org.junit.Test;
 public class ServicioServicesImplTest {
 
 	
-	 
+	ServicioServices servicioServices = new ServicioServicesImpl();
 		
 	 @Test
-	  public void testFindServicioList() {
+	  public void testFindServicio() {
 	    
-	    ServicioServices servicioServices = new ServicioServicesImpl();
-	    assertNotNull(servicioServices.findServicioList());
+	   assertNotNull(servicioServices.findServicio());
+	   
 	    
 	  }
+	 @Test
+	 public void testFindServicioById(){
+		 int servicioId = 1;
+		 assertNotNull(servicioServices.findServicioByID(servicioId));
+	 }
+	 
 
 	
 	  
