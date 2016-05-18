@@ -19,7 +19,7 @@ public class JPAReservaDAO implements ReservaDAO {
 	  private EntityManager em = null;
 
 	public ReservaDTO findReservaByID(int reservaId) {
-		Query query = em.createQuery("SELECT new co.com.peluqueria.model.ReservaDTO(r.id,r.cliente.name,r.date,r.servicio.name,r.lugar,name,r.empleado.name,r.hour)FROM Reserva r WHERE r.id = :reservaId");
+		Query query = em.createQuery("SELECT new co.com.peluqueria.model.ReservaDTO(r.id,r.cliente.name,r.date,r.servicio.name,r.lugar.name,r.empleado.name,r.hour)FROM Reserva r WHERE r.id = :reservaId");
 	    query.setParameter("reservaId", reservaId);
 	    ReservaDTO reservaDTO = (ReservaDTO) query.getSingleResult();
 	    return reservaDTO;
@@ -27,7 +27,7 @@ public class JPAReservaDAO implements ReservaDAO {
 	}
 
 	public List<ReservaDTO> findReserva() {
-		 Query query = em.createQuery("SELECT new co.com.peluqueria.model.ReservaDTO(r.id,r.cliente.name,r.date,r.servicio.name,r.lugar,name,r.empleado.name,r.hour)FROM Reserva r");
+		 Query query = em.createQuery("SELECT new co.com.peluqueria.model.ReservaDTO(r.id,r.cliente.name,r.date,r.servicio.name,r.lugar.name,r.empleado.name,r.hour)FROM Reserva r");
 		  List<ReservaDTO> reservasDTO = query.getResultList();
 		  return reservasDTO;
 	}

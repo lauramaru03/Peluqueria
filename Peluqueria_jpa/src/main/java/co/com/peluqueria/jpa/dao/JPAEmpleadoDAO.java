@@ -19,14 +19,14 @@ public class JPAEmpleadoDAO implements EmpleadoDAO {
 	  
 
 	  public EmpleadoDTO findEmpleadoByID(int empleadoId) {
-	    Query query = em.createQuery("SELECT new co.com.peluqueria.model.EmpleadoDTO(e.id,e.name,e.photography,e.profession,e.description,e.cellphone,e.email) FROM Empleado e WHERE e.id = :empleadoId");
+	    Query query = em.createQuery("SELECT new co.com.peluqueria.model.EmpleadoDTO(e.id,e.name,e.photography,e.profession,e.description,e.cellphone,e.email,e.lugar.name) FROM Empleado e WHERE e.id = :empleadoId");
 	    query.setParameter("empleadoId", empleadoId);
 	    EmpleadoDTO empleadoDTO = (EmpleadoDTO) query.getSingleResult();
 	    return empleadoDTO;
 	  }
 	  
 	  public List<EmpleadoDTO> findEmpleado(){
-		  Query query = em.createQuery("SELECT new co.com.peluqueria.model.EmpleadoDTO(e.id,e.name,e.photography,e.profession,e.description,e.cellphone,e.email) FROM Empleado e ");
+		  Query query = em.createQuery("SELECT new co.com.peluqueria.model.EmpleadoDTO(e.id,e.name,e.photography,e.profession,e.description,e.cellphone,e.email,e.lugar.name) FROM Empleado e ");
 		  List<EmpleadoDTO> empleadosDTO = query.getResultList();
 		  return empleadosDTO;
 	  

@@ -1,7 +1,5 @@
 package co.com.peluqueria.jpa.dao;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.junit.Test;
@@ -29,7 +27,7 @@ public class JPAEmpleadoDAOTest {
 	    System.out.println("Descripcion:" + empleadoDTO.getDescription());
 	    System.out.println("Correo:" + empleadoDTO.getEmail());
 	    System.out.println("Celular:" + empleadoDTO.getCellphone());
-	   /* System.out.println("Lugar:"+ empleadoDTO.getLugar_id());*/
+	    System.out.println("Lugar:"+ empleadoDTO.getLugar());
 	    
 	    
 	    
@@ -54,7 +52,7 @@ public class JPAEmpleadoDAOTest {
 	 	    System.out.println("Descripcion:" + employee.getDescription());
 	 	    System.out.println("Correo:" + employee.getEmail());
 	 	    System.out.println("Celular:" + employee.getCellphone());
-	 	   /* System.out.println("Lugar:" + employee.getLugar_id());*/
+	 	    System.out.println("Lugar:"+ employee.getLugar());
 			System.out.println("          ");
 			 
 			}

@@ -3,14 +3,12 @@
  */
 package co.com.peluqueria.jpa.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import co.com.peluqueria.DAO.LugarDAO;
-import co.com.peluqueria.jpa.entities.Lugar;
 import co.com.peluqueria.model.LugarDTO;
 
 public class JPALugarDAOTest {

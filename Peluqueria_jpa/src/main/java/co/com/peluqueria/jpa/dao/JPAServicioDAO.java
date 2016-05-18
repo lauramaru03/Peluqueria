@@ -9,7 +9,6 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import co.com.peluqueria.DAO.ServicioDAO;
-import co.com.peluqueria.jpa.entities.Servicio;
 import co.com.peluqueria.model.ServicioDTO;
 
 @Repository

@@ -74,14 +74,10 @@
 			<version>1.7.1</version>
 	    </dependency>
 	    <dependency>
-	    	<groupId>peluqueria_jdbc</groupId>
-	    	<artifactId>peluqueria_jdbc</artifactId>
+	    	<groupId>peluqueria_common</groupId>
+	    	<artifactId>peluqueria_common</artifactId>
 	    	<version>0.0.1-SNAPSHOT</version>
 	    </dependency>
-	     <dependency>
-	    	<groupId>peluqueria_jpa</groupId>
-	    	<artifactId>peluqueria_jpa</artifactId>
-	    	<version>0.0.1-SNAPSHOT</version>
-	    </dependency>
+	   
 	</dependencies>  
 </project>

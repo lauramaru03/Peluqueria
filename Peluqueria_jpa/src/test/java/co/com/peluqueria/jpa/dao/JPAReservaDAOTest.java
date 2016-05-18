@@ -11,7 +11,7 @@ import co.com.peluqueria.model.ReservaDTO;
 public class JPAReservaDAOTest {
 
 	@Test
-	  public void testFindClienteByID() {
+	  public void testFindReservaByID() {
 	    // Se obtiene el contexto de la aplicacion
 	    ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Datasource-JPA.xml");
 
@@ -33,7 +33,7 @@ public class JPAReservaDAOTest {
 	  }
 	
 	 @Test
-	  public void testFindCliente() {
+	  public void testFindReserva() {
 	    // Se obtiene el contexto de la aplicacion
 	    ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Datasource-JPA.xml");
 

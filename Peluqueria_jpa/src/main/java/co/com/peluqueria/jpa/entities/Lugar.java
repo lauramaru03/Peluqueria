@@ -1,6 +1,5 @@
 package co.com.peluqueria.jpa.entities;
 
-import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,12 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  * Entidad que contiene toda la información de los lugares
- * @author Milton
+ * @author Laura
  */
 @Entity
 @Table(name="lugar")
@@ -55,9 +53,9 @@ public class Lugar {
   /**
    * mappedBy para indicar el nombre de la propiedad en la clase Empleado que define la relación.
    */
-  @OneToMany(mappedBy="lugar")
+ /* @OneToMany(mappedBy="lugar")
   private List<Empleado> empleados;
-
+*/
   /**
    * @return the id
    */

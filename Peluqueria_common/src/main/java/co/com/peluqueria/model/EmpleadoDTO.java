@@ -7,8 +7,8 @@ public class EmpleadoDTO implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 3877948800497266504L;
+
 	private int id;
 	
 	private String name;
@@ -23,7 +23,7 @@ public class EmpleadoDTO implements Serializable{
 	
 	private String email;
 	
-	private int lugar_id;
+	private String lugar;
 	
 
 
@@ -124,12 +124,29 @@ public class EmpleadoDTO implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	/**
+	 * @return the lugar
+	 */
+	public String getLugar() {
+		return lugar;
+	}
 
+	/**
+	 * @param lugar the lugar to set
+	 */
+	public void setLugar(String lugar) {
+		this.lugar = lugar;
+	}
+
+	public EmpleadoDTO() {
+		super();
+		
+	}
 
 	
 
 	public EmpleadoDTO(int id, String name, String photography, String profession, String description, String cellphone,
-			String email) {
+			String email,String lugar) {
 		
 		this.id = id;
 		this.name = name;
@@ -138,14 +155,11 @@ public class EmpleadoDTO implements Serializable{
 		this.description = description;
 		this.cellphone = cellphone;
 		this.email = email;
-		this.lugar_id = lugar_id;
+		this.lugar = lugar;
 		
 	}
 
-	public EmpleadoDTO() {
-		super();
-		
-	}
+	
 	
 
 }

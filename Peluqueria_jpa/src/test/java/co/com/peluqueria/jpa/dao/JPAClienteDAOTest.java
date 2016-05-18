@@ -1,16 +1,12 @@
 package co.com.peluqueria.jpa.dao;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import co.com.peluqueria.DAO.ClienteDAO;
-import co.com.peluqueria.DAO.EmpleadoDAO;
 import co.com.peluqueria.model.ClienteDTO;
-import co.com.peluqueria.model.EmpleadoDTO;
 
 public class JPAClienteDAOTest {
 
