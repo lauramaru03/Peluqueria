@@ -1,67 +1,45 @@
 package co.com.peluqueria.services;
 
-import java.util.List;
+import javax.ws.rs.core.MediaType;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import co.com.peluqueria.DAO.ReservaDAO;
-import co.com.peluqueria.DAO.ServicioDAO;
+import com.google.gson.Gson;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
 import co.com.peluqueria.model.ReservaDTO;
-import co.com.peluqueria.model.ServicioDTO;
-
-
-
 
 public class ReservaServicesImpl implements ReservaServices {
 	
-	ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Datasource-JPA.xml");
-	
 
-	@Override
-	public ReservaDTO findReservaByID(int reservaId) {
+	 
+	 public ReservaDTO getReservaDTO(){
+			
+		 Client client=Client.create();
 		
-		return this.findByIDJPA(reservaId); 
-	}
-
-	private ReservaDTO findByIDJPA(int reservaId) {
+		WebResource webResource   = client.resource("http://localhost:8080/Peluqueria_ws/rest/json/firstpage/servicio7/1");
 		
+		 ClientResponse response =webResource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
 		 
-
-		    // Se obtiene el servicio que implementa los servicios de la base de datos
-		    ReservaDAO sesionDAO = (ReservaDAO) context.getBean(ReservaDAO.class);
-
-		    // Se realiza el insert
-		    ReservaDTO reservaDTO = sesionDAO.findReservaByID(1);
-		    
-		    
+		 if(response.getStatus() !=200){
+			 throw new RuntimeException("failed:Htttp error code:" + response.getStatus());
+		 }
+		 
+		 String output =response.getEntity(String.class);
+		 
+		 final Gson gson = new Gson();
+		 final ReservaDTO reservaDTO =gson.fromJson(output, ReservaDTO.class);
+		  
+		 System.out.println("Fecha:"+ reservaDTO.getDate());
+		 System.out.println("Cliente:"+ reservaDTO.getCliente());
+		 System.out.println("Servicio:"+ reservaDTO.getServicio());
+		 System.out.println("Lugar:"+ reservaDTO.getLugar());
+		 System.out.println("Empleado:"+ reservaDTO.getEmpleado());
+		 System.out.println("Hora:"+ reservaDTO.getHour());
+		 
+		 System.out.println("              ");
+		 
 		return reservaDTO;
-	}
-
-	@Override
-	public List<ReservaDTO> findReserva() {
-		
-		return this.findReservaJPA();
-	}
-
-	private List<ReservaDTO> findReservaJPA() {
-		
-	    // Se obtiene el servicio que implementa los servicios de la base de datos
-	    ReservaDAO sesionDAO = (ReservaDAO) context.getBean(ReservaDAO.class);
-
-	    List<ReservaDTO> reservaDTO = sesionDAO.findReserva();
-	    // Se realiza el insert
-	    
-	    
-	    return reservaDTO;
-	   
-	  }
-		
 	
-	    
 	 }
-
-	
-	
-
-
+	 
+}

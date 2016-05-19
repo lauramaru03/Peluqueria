@@ -24,8 +24,6 @@ public class EmpleadoDTO implements Serializable{
 	private String email;
 	
 	private String lugar;
-	
-
 
 	/**
 	 * @return the id
@@ -124,6 +122,7 @@ public class EmpleadoDTO implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	/**
 	 * @return the lugar
 	 */
@@ -138,15 +137,8 @@ public class EmpleadoDTO implements Serializable{
 		this.lugar = lugar;
 	}
 
-	public EmpleadoDTO() {
-		super();
-		
-	}
-
-	
-
 	public EmpleadoDTO(int id, String name, String photography, String profession, String description, String cellphone,
-			String email,String lugar) {
+			String email) {
 		
 		this.id = id;
 		this.name = name;
@@ -155,9 +147,18 @@ public class EmpleadoDTO implements Serializable{
 		this.description = description;
 		this.cellphone = cellphone;
 		this.email = email;
-		this.lugar = lugar;
-		
+		/*this.lugar = lugar;*/
 	}
+
+	public EmpleadoDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
+
+
+	
 
 	
 	

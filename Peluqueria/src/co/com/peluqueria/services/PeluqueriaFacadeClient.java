@@ -1,36 +1,79 @@
 package co.com.peluqueria.services;
 
-
-import javax.ws.rs.core.MediaType;
-
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
-
+import java.util.List;
+import co.com.peluqueria.services.ServicioServices;
+import co.com.peluqueria.services.ServicioServicesImpl;
+import co.com.peluqueria.model.EmpleadoDTO;
+import co.com.peluqueria.model.LugarDTO;
+import co.com.peluqueria.model.ReservaDTO;
 import co.com.peluqueria.model.ServicioDTO;
 
 public class PeluqueriaFacadeClient {
 	
-	
-	 public ServicioDTO getServicioDTO() {
-		 // creando un cliente para el ws
-		 Client client=Client.create();
-		 //devuelve web resource
-		WebResource webResource   = client.resource("http://localhost:8080/Peluqueria_ws/rest/json/firstpage/servicio1");
-		
-		//envia la peticion al WS y obtiene la respuesta
-		 ClientResponse response =webResource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
+	 
+	 public ServicioDTO getServicioDTO(){
 		 
-		 if(response.getStatus() !=200){
-			 throw new RuntimeException("failed:Htttp error code:" + response.getStatus());
-		 }
+		 ServicioServices servicioServices = new ServicioServicesImpl();
+		 ServicioDTO servicioDTO= servicioServices.getServicioDTO();
 		 
-		 String output =response.getEntity(String.class);
-		 // json convertido en un string
-		 System.out.println(output);
+	return servicioDTO;
 		 
-		 //Convertir json a DTO
-		 return null;
 	 }
-
+	 public List<ServicioDTO> getServiciosDTO(){
+		 
+		 ServicioServices servicioServices = new ServicioServicesImpl();
+		 List<ServicioDTO> serviciosDTO= servicioServices.getServiciosDTO();
+		  
+		  return serviciosDTO;
+		  
+	  }
+	 public LugarDTO getLugarDTO(){
+		 
+		 LugarServices lugarServices = new LugarServicesImpl();
+		 LugarDTO lugarDTO= lugarServices.getLugarDTO();
+		 
+	return lugarDTO;
+		 
+	 }
+	 public List<LugarDTO> getLugaresDTO(){
+		 
+		 LugarServices lugarServices = new LugarServicesImpl();
+		 List<LugarDTO> lugaresDTO= lugarServices.getLugaresDTO();
+		  
+		  return lugaresDTO;
+		  
+	  }
+	 
+	 
+ public EmpleadoDTO getEmpleadoDTO(){
+		 
+		 EmpleadoServices empleadoServices = new EmpleadoServicesImpl();
+		 EmpleadoDTO empleadoDTO= empleadoServices.getEmpleadoDTO();
+		 
+	return empleadoDTO;
+		 
+	 }
+	 public List<EmpleadoDTO> getEmpleadosDTO(){
+		 
+		 EmpleadoServices empleadoServices = new EmpleadoServicesImpl();
+		 List<EmpleadoDTO> empleadosDTO= empleadoServices.getEmpleadosDTO();
+		  
+		  return empleadosDTO;
+		  
+	  }
+	 
+	 
+	 public ReservaDTO getReservaDTO(){
+		 
+		 ReservaServices reservaServices = new ReservaServicesImpl();
+		 ReservaDTO reservaDTO= reservaServices.getReservaDTO();
+		  
+		  return reservaDTO;
+		  
+	  }
+	 
+	
+	 
+	 
 }
+

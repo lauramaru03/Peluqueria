@@ -4,10 +4,10 @@ import java.util.List;
 
 import co.com.peluqueria.model.EmpleadoDTO;
 
+
+
 public interface EmpleadoServices {
 	
-
-	  public EmpleadoDTO findEmpleadoByID(int empleadoId);
-	  public List<EmpleadoDTO> findEmpleado();
-
+		  public EmpleadoDTO getEmpleadoDTO();
+		  public List<EmpleadoDTO> getEmpleadosDTO();
 }

@@ -26,7 +26,7 @@ public class JPAClienteDAOTest {
 	    System.out.println("Correo:" + clienteDTO.getEmail());
 	    System.out.println("Fecha de nacimiento:" + clienteDTO.getBirthdate());
 	    
-	    context.close();
+	   
 	    
 	  }
 	
@@ -51,7 +51,7 @@ public class JPAClienteDAOTest {
 			System.out.println("          ");
 			 
 			}
-	    context.close();
+	    
 	   
 	  }
 

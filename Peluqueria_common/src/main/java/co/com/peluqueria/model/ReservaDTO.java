@@ -1,8 +1,6 @@
 package co.com.peluqueria.model;
 
 import java.io.Serializable;
-import java.sql.Time;
-import java.util.Date;
 
 public class ReservaDTO implements Serializable{
 
